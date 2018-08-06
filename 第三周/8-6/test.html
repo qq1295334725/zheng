@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<meta name="keywords" content="云打码,验证码,验证码识别,验证码识别软件,人工打码,c++验证码识别,php验证码识别,易语言验证码识别,java验证码识别,delphi验证码识别,验证码服务" />
+<meta name="description" content="云打码采用全球领先的秒传识别系统，50%图片零秒识别，人工平均处理时间0-3秒。贴心的会员系统，用户消费越多优惠越多，开发者更可享受最高35%分成！" />
+<title>云打码官网 - 验证码识别,远程打码,远程答题,验证码,识别验证码,验证码识别系统,全自动识别验证码</title>
+<link href="resources/css/global.css" rel="stylesheet" type="text/css">
+<link href="resources/css/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="resources/js/jquery1.8.js"></script>
+<script type="text/javascript" src="resources/js/index.js"></script>
+<script src="/resources/js/topbar.js" language="javascript"></script>
+
+<!--[if IE 6]>
+<script type="text/javascript" src="resources/js/DD_belatedPNG.js"></script>
+<script>DD_belatedPNG.fix('.logo,.current,.icon,.sqr-sel,.logo img,.focus img');</script>
+<![endif]-->
+</head>
+<body>
+
+	<!--top_logo 开始-->
+		<div class="top_logo">
+			<div class="container">
+				<a href="/" class="logo lt"><img src="resources/img/n_logo.jpg" /></a>
+				<div class="share rt">
+					<a href="http://wpa.qq.com/msgrd?V=1&uin=4008588180" class="a1" target="_blank"><img src="resources/img/top_share_1.jpg" /></a>
+					<a href="http://wpa.qq.com/msgrd?V=1&uin=4008588180" class="a2" target="_blank"><img src="resources/img/top_share_2.jpg" /></a>
+					<a href="http://wpa.qq.com/msgrd?V=1&uin=4008588180" class="a3" target="_blank"><img src="resources/img/top_share_3.jpg" /></a>
+				</div>
+				<img src="resources/img/top_tel.jpg" class="top_tel rt" />
+			</div>
+		</div>
+	<!--top_logo 结束-->
+
+	<!--n_nav 新导航开始-->
+		<div class="n_nav">
+			<div class="container">
+				<a href="/" class="hover">首页</a>
+				<a href="/apidoc">开发文档</a>
+				<a href="/demo.html">在线识别</a>
+				<a href="/price.html">题分价格</a>
+				<a href="/vip.html">5折充值</a>
+				<a href="/about.html">关于我们</a>
+				<div class="l_rt rt" id="loginInfo">
+					<a href="/">立即登陆</a>
+					<span>|</span>
+					<a href="/index/reg">免费注册</a>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	<!--n_nav 新导航结束-->
+
+	<!--banner 开始-->
+		<div class="banner">
+
+			<!--登陆窗-->
+				<div class="n_login">
+					<div class="login_inner">
+						<div class="change">
+							<span class="lt">用户登录</span>
+							<span class="rt">开发者登录</span>
+						</div>
+
+						<div id="div_login" class="login_con l_1 show">
+							<dl>
+								<dt id="dt_u">用户账号：</dt>
+								<dd><input type="text" class="text" id="username" name="username"/></dd>
+							</dl>
+							<dl>
+								<dt>登陆密码：</dt>
+								<dd><input type="password" class="text" id="password" name="password"/></dd>
+							</dl>
+							<dl class="code lt">
+								<dt>验证码：</dt>
+								<dd><input type="text" class="text c_text" id="vcode" name="vcode"/></dd>
+							</dl>
+							<img id="verifyImg" style="cursor:pointer;" onclick="this.src='/index/captcha?r='+Math.random();" src="/index/captcha" class="c_pic lt" title="看不清，换一张"/>
+							<div class="clear"></div>
+							<input type="submit" class="sub" value="登 陆" onclick="onlogin();"/>
+							<p class="login-links">
+								<a id="a_link" href="/index/reg">免费注册</a> | <a href="#" onclick="alert('请联系客服找回密码');">忘记密码</a>
+							</p>
+						</div>
+
+					</div>
+					<div class="login_bg"></div>
+				</div>
+			<!--登陆窗-->
+
+			<ul class="big">
+                <!--
+				<li class="show" bg="resources/focus/banner.jpg"><a href="/vip.html" target="_blank;"></a></li>
+				<li bg="resources/focus/focus01.png"><a href="/index/reg/user" target="_blank;"></a></li>
+				<li bg="resources/focus/focus02.png"><a href="/index/reg/developer" target="_blank;"></a></li>
+				-->
+				<li class="show" bg="resources/focus/1.jpg"><a href="/index/reg/user" target="_blank;"></a></li>
+				<li bg="resources/focus/2.jpg"><a href="/index/reg/developer" target="_blank;"></a></li>
+				<li bg="resources/focus/3.jpg"><a href="/index/reg/developer" target="_blank;"></a></li>
+				<li bg="resources/focus/4.jpg"><a href="/index/reg/user" target="_blank;"></a></li>
+			</ul>
+			<div class="btn">
+				<span class="hover"></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	<!--banner 结束-->
+
+	<!--top_info 开始-->
+		<div class="top_info container">
+			<div class="c_btn pre" title="上一组"></div>
+			<div class="c_btn next" title="下一组"></div>
+
+			<div class="info_par">
+				<div class="info_outer">
+
+					<div class="info_list">
+
+						<div class="list">
+							<div class="head">
+								<span>高效作业</span>
+							</div>
+							<dl>
+								<dt><img src="resources/img/index_list_1.jpg" /></dt>
+								<dd>7*24小时作业，每码识别0-3秒</dd>
+							</dl>
+						</div>
+
+						<div class="list">
+							<div class="head">
+								<span>稳定性</span>
+							</div>
+							<dl>
+								<dt><img src="resources/img/index_list_2.jpg" /></dt>
+								<dd class="d2">18台服务器，8000人校正团队</dd>
+							</dl>
+						</div>
+
+						<div class="list list_end">
+							<div class="head">
+								<span>提高用户体验</span>
+							</div>
+							<dl>
+								<dt><img src="resources/img/index_list_3.jpg" /></dt>
+								<dd class="d3">解放双手，拒绝人工打码</dd>
+							</dl>
+						</div>
+
+						<p>云打码采用全球领先的秒传识别系统，50%图片零秒识别，人工平均处理时间0-3秒。所有用户享受 5折 充值优惠，开发者更可享受最高 35% 分成！云打码旨在为广大开发商，网民，盲人等有需要的人士提供周到、准确、快速的验证码识别、远程代答题服务。不求最好，只求更好！</p>
+
+					</div>
+
+					<div class="info_list">
+
+						<div class="list">
+							<div class="head">
+								<span>高效作业</span>
+							</div>
+							<dl>
+								<dt><img src="resources/img/index_list_1.jpg" /></dt>
+								<dd>7*24小时作业，每码识别0-3秒</dd>
+							</dl>
+						</div>
+
+						<div class="list">
+							<div class="head">
+								<span>稳定性</span>
+							</div>
+							<dl>
+								<dt><img src="resources/img/index_list_2.jpg" /></dt>
+								<dd class="d2">18台服务器，8000人校正团队</dd>
+							</dl>
+						</div>
+
+						<div class="list list_end">
+							<div class="head">
+								<span>提高用户体验</span>
+							</div>
+							<dl>
+								<dt><img src="resources/img/index_list_3.jpg" /></dt>
+								<dd class="d3">解放双手，拒绝人工打码</dd>
+							</dl>
+						</div>
+
+						<p>云打码采用全球领先的秒传识别系统，50%图片零秒识别，人工平均处理时间0-3秒。所有用户享受 5折 充值优惠，开发者更可享受最高 35% 分成！云打码旨在为广大开发商，网民，盲人等有需要的人士提供周到、准确、快速的验证码识别、远程代答题服务。不求最好，只求更好！</p>
+
+					</div>
+
+					<div class="info_list">
+
+						<div class="list">
+							<div class="head">
+								<span>高效作业</span>
+							</div>
+							<dl>
+								<dt><img src="resources/img/index_list_1.jpg" /></dt>
+								<dd>7*24小时作业，每码识别0-3秒</dd>
+							</dl>
+						</div>
+
+						<div class="list">
+							<div class="head">
+								<span>稳定性</span>
+							</div>
+							<dl>
+								<dt><img src="resources/img/index_list_2.jpg" /></dt>
+								<dd class="d2">18台服务器，8000人校正团队</dd>
+							</dl>
+						</div>
+
+						<div class="list list_end">
+							<div class="head">
+								<span>提高用户体验</span>
+							</div>
+							<dl>
+								<dt><img src="resources/img/index_list_3.jpg" /></dt>
+								<dd class="d3">解放双手，拒绝人工打码</dd>
+							</dl>
+						</div>
+
+						<p>云打码采用全球领先的秒传识别系统，50%图片零秒识别，人工平均处理时间0-3秒。所有用户享受 5折 充值优惠，开发者更可享受最高 35% 分成！云打码旨在为广大开发商，网民，盲人等有需要的人士提供周到、准确、快速的验证码识别、远程代答题服务。不求最好，只求更好！</p>
+
+					</div>
+
+					<div class="info_list">
+
+						<div class="list">
+							<div class="head">
+								<span>高效作业</span>
+							</div>
+							<dl>
+								<dt><img src="resources/img/index_list_1.jpg" /></dt>
+								<dd>7*24小时作业，每码识别0-3秒</dd>
+							</dl>
+						</div>
+
+						<div class="list">
+							<div class="head">
+								<span>稳定性</span>
+							</div>
+							<dl>
+								<dt><img src="resources/img/index_list_2.jpg" /></dt>
+								<dd class="d2">18台服务器，8000人校正团队</dd>
+							</dl>
+						</div>
+
+						<div class="list list_end">
+							<div class="head">
+								<span>提高用户体验</span>
+							</div>
+							<dl>
+								<dt><img src="resources/img/index_list_3.jpg" /></dt>
+								<dd class="d3">解放双手，拒绝人工打码</dd>
+							</dl>
+						</div>
+
+						<p>云打码采用全球领先的秒传识别系统，50%图片零秒识别，人工平均处理时间0-3秒。所有用户享受 5折 充值优惠，开发者更可享受最高 35% 分成！云打码旨在为广大开发商，网民，盲人等有需要的人士提供周到、准确、快速的验证码识别、远程代答题服务。不求最好，只求更好！</p>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	<!--top_info 结束-->
+
+	<!--server 开始-->
+		<div class="server container">
+
+			<div class="server_info lt">
+				<div class="pic lt">
+					<img src="resources/img/server_info.jpg" />
+				</div>
+				<dl class="type" style="font-size:14px;">
+					<dt>服务器状态   <span>正常</span></dt>
+					<dd>平均识别时间：<span id="average">2.23秒</span></dd>
+					<dd>5分钟前：<span id="5min">2.99秒</span></dd>
+					<dd>15分钟前：<span id="15min">2.7秒<span id="5min"></dd>
+				</dl>
+				<div class="clear"></div>
+				<p>识别正确率：<span id="accuracy"><strong>98.2%</strong></span><span id="time">2014-01-08 10：50</span></p>
+			</div>
+
+			<div class="server_pic rt">
+				<div class="s_par">
+					<div class="c_btn pre"></div>
+					<div class="c_btn next"></div>
+					<div class="s_outer">
+						<ul>
+							<li><span><img src="resources/sample/1.jpg" /></span></li>
+							<li><span><img src="resources/sample/2.jpg" /></span></li>
+							<li><span><img src="resources/sample/3.jpg" /></span></li>
+							<li><span><img src="resources/sample/4.jpg" /></span></li>
+							<li><span><img src="resources/sample/5.jpg" /></span></li>
+							<li><span><img src="resources/sample/6.jpg" /></span></li>
+							<li><span><img src="resources/sample/7.jpg" /></span></li>
+							<li><span><img src="resources/sample/8.jpg" /></span></li>
+							<li><span><img src="resources/sample/9.jpg" /></span></li>
+							<li><span><img src="resources/sample/10.jpg" /></span></li>
+							<li><span><img src="resources/sample/11.jpg" /></span></li>
+							<li><span><img src="resources/sample/12.jpg" /></span></li>
+							<li><span><img src="resources/sample/13.jpg" /></span></li>
+							<li><span><img src="resources/sample/14.jpg" /></span></li>
+							<li><span><img src="resources/sample/15.jpg" /></span></li>
+							<li><span><img src="resources/sample/16.jpg" /></span></li>
+							<li><span><img src="resources/sample/17.jpg" /></span></li>
+							<li><span><img src="resources/sample/18.jpg" /></span></li>
+							<li><span><img src="resources/sample/19.jpg" /></span></li>
+							<li><span><img src="resources/sample/20.jpg" /></span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="clear"></div>
+	<!--server 结束-->
+
+	<!--api 开始-->
+		<div class="api">
+			<div class="container">
+				<p>API接口完美支持</p>
+				<a href="/apidoc/YDM_SDK.html"><img src="resources/img/api_1.jpg" /></a>
+				<a href="/apidoc/YDM_SDK.html"><img src="resources/img/api_2.jpg" /></a>
+				<!--<a href="/apidoc/YDM_SDK.html"><img src="resources/img/api_3.jpg" /></a>-->
+				<a href="/apidoc/YDM_SDK.html"><img src="resources/img/api_4.jpg" /></a>
+				<a href="/apidoc/YDM_SDK.html"><img src="resources/img/api_5.jpg" /></a>
+				<a href="/apidoc/YDM_SDK.html"><img src="resources/img/api_6.jpg" /></a>
+				<a href="/apidoc/YDM_SDK.html"><img src="resources/img/api_7.jpg" /></a>
+				<a href="/apidoc/YDM_SDK.html"><img src="resources/img/api_8.jpg" /></a>
+				<a href="/apidoc/YDM_SDK.html"><img src="resources/img/api_9.jpg" /></a>
+				<a href="/apidoc/YDM_SDK.html"><img src="resources/img/api_10.jpg" /></a>
+			</div>
+		</div>
+	<!--api 结束-->
+
+	<!--index_footer 开始-->
+		<div class="index_footer">
+			<div class="top"></div>
+			<div class="container">
+
+				<div class="l_info lt">
+					<p>版权所有 闽ICP备13015888号  莆田二三六啦信息科技有限公司</p>
+					<div class="tel">
+						<ul>
+							<li>免费技术</li>
+							<li>支持电话</li>
+						</ul>
+						<strong>17188604180</strong>
+					</div>
+					<p>来访地址：莆田二三六啦信息科技有限公司</p>
+					<p>
+						<a href="/about.html">关注我们</a> |
+						<a href="/about.html">网站合作</a> |
+						<a href="/about.html">其他咨询</a>
+					</p>
+					<p>友情链接：
+						<a href="http://bbs.25e.net" target="_blank;">商易论坛</a> |
+						<a href="/apidoc/YDM_SDK.html#DLL" target="_blank;">最新接口DLL</a> |
+						<a href="/apidoc/YDM_SDK.html#DEMO" target="_blank;">接口调用DEMO</a>
+					</p>
+				</div>
+
+				<div class="r_info rt">
+					<dl>
+						<dt>Onlie  Service</dt>
+						<dd>我们提供了更加便捷的在线QQ服务，</dd>
+						<dd>希望能更好的帮助您解决问题！</dd>
+						<dd>捷迅技术提供技术支持</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	<!--index_footer 结束-->
+
+<script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODAyMDcxMl84MTI4NV80MDA4NTg4MTgwXw"></script>
+<!--<script language="javascript" type="text/javascript" src="http://js.users.51.la/16517228.js"></script>-->
+
+</body>
+</html>
