@@ -12,7 +12,7 @@ import re
 '''
 \d:匹配一个数字
 \w:用于匹配一个数字或者字母
-.:可以匹配前面字符后面跟着的任意一个字符。a.:可以匹配到ab,ac,ad
+.:可以匹配前面字符后面跟着的任意一个字符。a.:可以匹配到ab,ac,ad，a1
 *:可以匹配前面字符0个或者多个。a*：可以匹配到0个或者,aa,aaa,aaaa.......
 ?:可以匹配到前面字符0个或者1个。a?:可以匹配到0个a,或者1个a
 +:可以匹配前面字符任意多个，但是至少为1个，不能为0个。a+：a,aaaa,aaaaaa但是不能一个都匹配不到
@@ -29,51 +29,51 @@ $：表示必须以某某字符结尾。a$:只能匹配到以a结尾的字符(a)
 pattern_obj = re.compile('(\d+)(\w+)')
 # 2.根据正则表达式对象，从目标字符串进行匹配。
 # match():第一个参数，正则表达式对象，第二个对象：目标字符串,从头开始匹配。
-res = re.match(pattern_obj,'123456abcdefg')
-print(res.group(1))#str123456
-print(res.group(2))
+res = re.match(pattern_obj,'123abc456defg')
+print(res.group(1))#str  123
+print(res.group(2))#abc456defg
 
 pattern_obj = re.compile('(c.)')
-res = re.match(pattern_obj,'cbdefg')
-print(res.group(1))
+res = re.match(pattern_obj,'c1defg')
+print(res.group(1))#c1
 
 pattern_obj = re.compile('(a*)')
 res = re.match(pattern_obj,'aaaaaaabcdefg')
-print(res.group(1))
+print(res.group(1))#aaaaaaa
 
 pattern_obj = re.compile('(a?)')
 res = re.match(pattern_obj,'aaabcdefg')
-print(res.group(1))
+print(res.group(1))#a
 
 pattern_obj = re.compile('(b+)')
 res = re.match(pattern_obj,'bbbbcdefg')
-print(res.group(1))
+print(res.group(1))#bbbb
 
 pattern_obj=re.compile('(^cde)')
 res = re.match(pattern_obj,'cdefgh')
-print(res.group(1))
+print(res.group(1))#cde
 
 # match从头开始找，d$是以d结尾的，所有只能有d一个字符
 pattern_obj = re.compile('(d$)')
 res = re.match(pattern_obj,'d')
-print(res.group(1))
+print(res.group(1))#d
 
 pattern_obj = re.compile('(a.*b)')
 res = re.match(pattern_obj,'afd45bbbbb4w54eb')
-print(res.group(1))
+print(res.group(1))#afd45bbbbb4w54eb
 
 pattern_obj = re.compile('(a.*?b)')
 res = re.match(pattern_obj,'afd45bbbbb4w54eb')
-print(res.group(1))
+print(res.group(1))#afd45b
 
 pattern_obj = re.compile('(a.+b)')
 res = re.match(pattern_obj,'afd45bbbbb4w54eb')
-print(res.group(1))
+print(res.group(1))#afd45bbbbb4w54eb
 
 pattern_obj = re.compile('((haha|heihei)123)')
 res = re.match(pattern_obj,'heihei123')
 res1 = re.match(pattern_obj,'haha123')
-print(res.group(1))
-print(res.group(2))
-print(res1.group(1))
-print(res1.group(2))
+print(res.group(1))#heihei123
+print(res.group(2))#heihei
+print(res1.group(1))#haha123
+print(res1.group(2))#haha
