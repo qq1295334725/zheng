@@ -6,18 +6,18 @@
 @ide:PyCharm
 @time:2018-08-07 10:08:09
 """
-# urllib是python中内置的发送网络请求的一个库（包），在Python2中由urllib和urllib2两个库来实现请求的发送，但是Python中已经不存在urllib2这个库了，已经将urllib和urllib2合并为urllib。
-# urllib是一个库（包），request是urllib库里面用于发送网络请求 的一个模块。
+# urllib是python中内置的发送网络请求的一个库（包），在Python2中由urllib和urllib2两个库来实现请求的发送，但是Python3中已经不存在urllib2这个库了，已经将urllib和urllib2合并为urllib。
+# urllib是一个库（包），request是urllib库里面用于发送网络请求的一个模块。
 import urllib.request
 # 发起一个不携带参数的get请求
 # responce = urllib.request.urlopen('http://www.baidu.com')
-# 调用status属性可以此次请求响应的状态码，200表示此次请求成功。
 # print(responce.reason)
+# 调用status属性可以此次请求响应的状态码，200表示此次请求成功。
 # print(responce.status)
 # 调用url属性，可以获取此次请求的地址
 # print(responce.url)
 # print(responce.headers)
-# 由于使用read方法拿到的响应的数据是二进制数据，所有需要使用decode解码成utf-8编码。
+# 由于使用read方法拿到的响应的数据是二进制数据，所以需要使用decode解码成utf-8编码。
 # print(responce.read().decode('utf-8'))
 
 # -----------构造一个携带参数的请求--------------
@@ -29,7 +29,7 @@ import urllib.parse
 # 构造一个字典
 # data_dict = {
 #     "username":"gaghdfsg",
-    # "password":"44656556",
+#     "password":"44656556",
 #     "utype":"1",
 #     "vcode":"rqrwer"
 # }
@@ -59,7 +59,7 @@ import urllib.parse
 
 # 如果直接将中文传入URL中请求(使用urllib.request.urlopen直接访问网址时)，会导致编码错误，我们需要使用quote，对该中文关键字进行URL编码。
 # city = urllib.request.quote('郑州市'.encode('utf-8'))
-# response = urllib.request.urlopen(('http://api.map.baidu.com/telematics/v3/weather?location={}&output=json&ak=TueGDhCvwI6fOrQnLM0qmXxY9N0OkOiQ&callback=?').format(city))
+# response = urllib.request.urlopen('http://api.map.baidu.com/telematics/v3/weather?location={}&output=json&ak=TueGDhCvwI6fOrQnLM0qmXxY9N0OkOiQ&callback=?'.format(city))
 # print(response.read().decode('utf-8'))
 
 
@@ -75,4 +75,12 @@ last_data = bytes(data_string,encoding='utf-8')
 response = urllib.request.urlopen("http://httpbin.org/post",data=last_data)
 # 我们的参数出现在form表单中，着表明是模拟了表单的提交方式，以post方式传输数据
 print(response.read().decode('utf-8'))
+
+
+# response = urllib.request.urlopen('http://www.baidu.com',timeout=3)
+# print(response.read().decode('utf-8'))
+
+
+
+
 
