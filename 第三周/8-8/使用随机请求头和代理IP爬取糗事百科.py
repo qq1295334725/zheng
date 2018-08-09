@@ -15,7 +15,7 @@ from urllib.request import ProxyHandler,build_opener
 import re
 import random
 import sqlite3
-# 先设置要爬取网站的寄出网址
+# 先设置要爬取网站的网址
 base_url = 'https://www.qiushibaike.com/hot/'
 # 设置一个请求头列表
 user_agent_list = ['Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;TheWorld)','Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;Maxthon2.0)','Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;TencentTraveler4.0)','Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;360SE)']
@@ -37,14 +37,14 @@ def download_qsbk(page):
     opener = build_opener(proxy_handler)
     # 对网址发起访问，拿到源代码
     resoponse = opener.open(request).read().decode('utf-8')
-    # pattern_obj = re.compile(r'<div class="author clearfix>.*?<h2>(.*?)</h2>.*?<div class="articleGender .*?Icon">(.*?)</div>.*?<div class="content">.*?<span>(.*?)</span>.*?<div class="stats">.*?<i class="number">(.*?)</i>.*?<i class="number">(.*?)</i>',re.S)
     pattern_obj = re.compile(r'<div class="author clearfix">.*?<h2>(.*?)</h2>.*?class="articleGender .*?Icon">(.*?)</div>.*?<div class="content">.*?<span>(.*?)</span>.*?<div class="stats">.*?<i class="number">(.*?)</i>.*?<i class="number">(.*?)</i>',re.S)
+    # pattern_obj = re.compile(r'<div class="author clearfix">.*?<h2>(.*?)</h2>.*?class="articleGender .*?Icon">(.*?)</div>.*?<div class="content">.*?<span>(.*?)</span>.*?<div class="stats">.*?<i class="number">(.*?)</i>.*?<i class="number">(.*?)</i>',re.S)
     # 定义一个去掉\n、<br/>、&quot:这个换行符的正则表达式
     remove_n = re.compile(r'\n')
     remove_br = re.compile(r'<br/>')
     remove_quote = re.compile(r'&quot:')
     all_info_list = re.findall(pattern_obj,resoponse)
-    # print(all_info_list)
+    print(all_info_list)
     for nick_name,age,content,smile_num,comment_num in all_info_list:
         # 去掉昵称中的\n这个换行符
         nick_name = re.sub(remove_n,'',nick_name)
@@ -56,11 +56,11 @@ def download_qsbk(page):
         content = re.sub(remove_quote,'',content)
         insert_sql = "insert into baike(nick_name,age,content,smile_num,comment_num)VALUES ('%s','%s','%s','%s','%s')"%(nick_name,age,content,smile_num,comment_num)
         cursor.execute(insert_sql)
-        # print('用户昵称:',nick_name)
-        # print('用户年龄:', age)
-        # print('内容:', content)
-        # print('好笑数:', smile_num)
-        # print('评论数:', comment_num)
+        print('用户昵称:',nick_name)
+        print('用户年龄:', age)
+        print('内容:', content)
+        print('好笑数:', smile_num)
+        print('评论数:', comment_num)
 
 
 if __name__ == '__main__':
@@ -73,29 +73,4 @@ if __name__ == '__main__':
     connect.commit()
     cursor.close()
     connect.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -14,7 +14,7 @@ print(res.group(1))#my
 # search():从目标字符串的任意位置开始匹配数据，仅匹配成功一次，如果目标字符串有多个符合要求的结果，也只能找到一个。
 pattern_obj = re.compile('(my)')
 res = re.search(pattern_obj,'heihiemyhahamy')
-print(res.group(1))#my
+print('111111',res.group[1])#my
 
 pattern_obj = re.compile('my')
 res = re.search(pattern_obj,'heihiemyhahamy')
