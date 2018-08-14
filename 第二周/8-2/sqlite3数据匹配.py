@@ -31,22 +31,3 @@ connect.commit()
 cursor.close()
 connect.close()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

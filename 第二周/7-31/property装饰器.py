@@ -11,7 +11,7 @@
 # @classmethod
 # @staticmethod
 
-# property：负责装饰一个实例方法，让其生成对应的setter和getter方法，调用时可以直接使用对象名.函数名的这种类似于属性调用的方式。(只能有一个self参数，即属性)
+# property：负责装饰一个实例方法，让其生成对应的setter和getter方法，调用时只能使用对象名.函数名的这种类似于属性调用的方式。(只能有一个self参数，即属性)
 class People(object):
     def __init__(self, name):
         self.__name = name

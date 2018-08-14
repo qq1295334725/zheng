@@ -6,78 +6,74 @@
 @ide:PyCharm
 @time:2018-08-01 19:28:12
 """
-# class Student(object):
-#     def __init__(self):
-#         print('__init__')
-#
-#     def __new__(cls):
-#         print('__new__')
-#         return object.__new__(cls)
-# Student()
-
-# class Student(object):
-#     def __init__(self, name):
+# class Dog(object):
+#     __slots__ = ('name', 'age', 'work1')
+#     def __init__(self, name, age, work1):
 #         self.name = name
-#
-#     def __str__(self):
-#         return '它是%s。'%self.name
-#
-# print(Student('sahg'))
-# print(s1)
-
-#
-# class Student(object):
-#     __instance = None
-#     def __new__(cls):
-#         if cls.__instance:
-#             return cls.__instance
-#         else:
-#             cls.__instance = object.__new__(cls)
-#             return cls.__instance
-# a1 = Student()
-# print(a1)
-# a2 = Student()
-# print(a2)
-
-# class People(object):
-#     def work(self):
-#         pass
-# class APeople(People):
-#     def work(self):
-#         print('吃')
-# class BPeople(People):
-#     def work(self):
-#         print('完玩')
-# class CPeople(People):
-#     def work(self):
-#         print('洗')
-# def work_1(obj):
-#     obj.work()
-# p1 = APeople()
-# # work_1(p1)
-# p1.work()
-# BPeople().work()
-
-class Student(object):
-    f = open('student.txt', 'w', encoding='utf-8')
-    def __init__(self, name, score):
+#         self.age = age
+#         self.work1 = work1
+#     def name1(self):
+#         print('你好')
+#     @classmethod
+#     def work(cls):
+#         print('父类')
+# class DDog(Dog):
+#     def __init__(self, name,work1, page):
+#         super(DDog,self).__init__(self,name,work1)
+#         self.name = name
+#         self.work1 = work1
+#         self.page = page
+#     def name2(self):
+#         print('子类name2')
+#     def work(cls):
+#         print('子类')
+# d1 = Dog('二狗子','8','吃')
+# d1.work()
+# Dog.work()
+# d1.name1()
+# Dog.name1(1)
+class People(object):
+    def __init__(self,name,age,height):
         self.name = name
-        self.score = score
+        self.__height = height
+        self.__age = age
+    @property
+    def work(self):
+        return self.__height,self.__age
 
-    def write_file(self):
-        Student.f.write(self.name+' '+self.score)
-    def close_file(self):
-        Student.f.close()
-class StudentOne(Student):
-    def read_file(self):
-        super(StudentOne, self).write_file()
-        StudentOne.f.close()
-        f1 = open('student.txt', 'r', encoding='utf-8')
-        res = f1.readline()
-        return res
+    @work.setter
+    def work(self,height):
+        if isinstance(height,int):
+            self.__height = height
+        else:
+            raise ValueError('错误111')
 
-S1 = StudentOne('张三', '45')
-print(S1.read_file())
+    @work.deleter
+    def work(self):
+        if hasattr(self,'_People__age'):
+            del self.__age
+            print('1111111111')
+        else:
+            print('www')
+            # raise ValueError('www')
+s1 = People('张三', 20, 180)
+r1 = s1.work
+print(r1)
+s1.work=188
+print(s1.work)
+del s1.work
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

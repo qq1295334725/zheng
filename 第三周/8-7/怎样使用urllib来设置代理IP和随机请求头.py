@@ -50,6 +50,9 @@ from urllib.request import ProxyHandler,build_opener
 # respose = opener.open('http://www.zhiyou100.com')
 # print(respose.read().decode('utf-8'))
 
+#使用install_opener方法之后，会将程序中默认的urlopen方法替换掉，也就是说使用install_opener之后，在该文件中，再次调用urlopern会使用以及创建好的operner对象。如果不想替换，只是想临时用一下，可以使用opener.open()这样就不会对程序默认的urlopen有影响。
+# urllib.request.install_opener(opener)
+
 
 
 

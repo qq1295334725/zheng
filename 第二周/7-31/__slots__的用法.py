@@ -10,8 +10,8 @@
 class People(object):
     # 以元组的形式，定义要添加的属性，除此之外的属性不能被添加，即对动态绑定的属性发挥作用，也对__init__函数当中添加的属性发挥作用。
     __slots__ = ('name', 'age', 'weight')
-    def __init__(self, name, age,weight):1
-        self.__name = name
+    def __init__(self, name, age,weight):
+        self.name = name
         self.age = age
         self.weight = weight
         # self.height = height

@@ -11,7 +11,7 @@ class People(object):
         self.name = name
         self.age = age
 
-    # work，eat：叫做实例方法，只能通过对象才能调用
+    # eat：叫做实例方法，只能通过对象才能调用
     def eat(self):
         print('吃饭',self)
 

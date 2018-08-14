@@ -51,9 +51,9 @@ cursor = connect.cursor()
 # INTEGER,TEXT,FLOAT:数据类型
 # PRIMARY KEY:给id这个字段添加约束，将id这个字段作为主键。
 # 主键：主键是唯一的，不允许重复的，主要是给某一条数据设置一个唯一的，方便数据的查找和定位。
-creat_table = "create table student(id INTEGER PRIMARY KEY,name TEXT,age INTEGER,score FLOAT)"
+create_table = "create table student(id INTEGER PRIMARY KEY,name TEXT,age INTEGER,score FLOAT)"
 # 通过游标执行创建表的sql语句
-# cursor.execute(creat_table)
+# cursor.execute(create_table)
 
 # 向表中插入一条数据（sql语句）
 insert_sql = "insert into student(name,age,score)VALUES('李四', 20, 98.8)"

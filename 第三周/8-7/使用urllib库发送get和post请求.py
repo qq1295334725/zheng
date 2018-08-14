@@ -10,15 +10,15 @@
 # urllib是一个库（包），request是urllib库里面用于发送网络请求的一个模块。
 import urllib.request
 # 发起一个不携带参数的get请求
-# responce = urllib.request.urlopen('http://www.baidu.com')
-# print(responce.reason)
+# response = urllib.request.urlopen('http://www.baidu.com')
+# print(response.reason)
 # 调用status属性可以此次请求响应的状态码，200表示此次请求成功。
-# print(responce.status)
+# print(response.status)
 # 调用url属性，可以获取此次请求的地址
-# print(responce.url)
-# print(responce.headers)
+# print(response.url)
+# print(response.headers)
 # 由于使用read方法拿到的响应的数据是二进制数据，所以需要使用decode解码成utf-8编码。
-# print(responce.read().decode('utf-8'))
+# print(response.read().decode('utf-8'))
 
 # -----------构造一个携带参数的请求--------------
 import urllib.parse
