@@ -37,7 +37,7 @@ def get_cookie():
     print(response)
     # 登陆成功之后将服务器返回的cookie信息保存到本地
     cookie_obj.save(ignore_discard=True, ignore_expires=True)
-# get_cookie()
+get_cookie()
 def load_cookie():
     cookie = http.cookiejar.MozillaCookieJar()
     cookie.load("stu_cookie.txt",ignore_expires=True, ignore_discard=True)
@@ -45,8 +45,8 @@ def load_cookie():
     opener = urllib.request.build_opener(handler)
     request = urllib.request.Request("http://kaoshi.zhiyou900.com:8888/edustu/me/edu/meda.spr",headers=headers)
     response = opener.open(request).read().decode('utf-8')
-    print(response)
-load_cookie()
+    # print(response)
+# load_cookie()
 
 
 
