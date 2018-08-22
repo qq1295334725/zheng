@@ -13,7 +13,7 @@ import urllib.request
 from urllib.parse import urlencode
 import re
 import json
-import time
+import time 
 class PengPaiSpider(object):
     def __init__(self):
         self.base_url = "https://www.thepaper.cn/load_chosen.jsp?"

@@ -55,6 +55,7 @@ class JPMTSpider(object):
     def parse_json(self,html):
         # 由于获得的网页源代码是字符串，所有需要调用loads方法进行反序列化，得到的是一个字典
         json_data = json.loads(html)
+        # print(json_data)
         # 先判断json_data这个字典当中有没有data这个键
         if json_data.get('data'):
             # 如果有data这个键，则将data这个键对应的列表取出来
@@ -97,7 +98,8 @@ class JPMTSpider(object):
                 print('保存图片失败，原因是：',e)
 
 if __name__ == '__main__':
-    for x in range(0,100,20):
+    # for x in range(0,100,20):
+    for x in range(0, 20):
         spider = JPMTSpider(x,"街拍美图")
         spider.get_page()
 

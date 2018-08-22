@@ -38,8 +38,8 @@ opener=urllib.request.build_opener(hanlder)
 #第四步：根据opener对象对网址发起请求
 response_test=opener.open("http://www.baidu.com")
 #第五步：将cookie信息保存到本地
-#ignore_descard=True。即使cookie信息将要过期/作废，也要将其保存到文件
-#ignore_expires=True。即使cookie信息在文件中已经存在，仍然对其进行覆盖写入。
+#ignore_descard=True。即使cookie信息在文件中已经存在，仍然对其进行覆盖写入。
+#ignore_expires=True。即使cookie信息将要过期/作废，也要将其保存到文件
 cookie_mozilla_obj.save(ignore_expires=True,ignore_discard=True)
 
 
@@ -49,8 +49,8 @@ cookie_mozilla_obj.save(ignore_expires=True,ignore_discard=True)
 #第一步：声明一个MozillaCookieJar对象
 cookie_obj=http.cookiejar.MozillaCookieJar()
 #第二步：加载本地的cookie信息
-#ignore_descard=True。即使cookie信息将要过期/作废，也仍要读取cookie信息
-#igonre_expires=True。即使cookie信息在文件中已经存在，仍然也要读取。
+#ignore_descard=True。即使cookie信息在文件中已经存在，仍然也要读取。
+#igonre_expires=True。即使cookie信息将要过期/作废，也仍要读取cookie信息
 cookie_obj.load(filename="cookie.txt",ignore_expires=True,ignore_discard=True)
 #第三步：根据cookie_obj创建cookie信息的管理对象handler
 handler=urllib.request.HTTPCookieProcessor(cookie_obj)

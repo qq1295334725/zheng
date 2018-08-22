@@ -20,23 +20,23 @@ dic = {"name":"maria",'age':'20','is_male':True}
 # python中bool值：True/False
 
 # ------------序列化：将python中的对象存储到文件中-----------------
-# date = json.dumps(dic)
-# print(type(date))
-# print(date)
-# f = open('text.txt','w',encoding='utf-8')
-# f.write(date)
-# f.close()
+date = json.dumps(dic)
+print(type(date))
+print(date)
+f = open('text.txt','w',encoding='utf-8')
+f.write(date)
+f.close()
 
 # ------------------反序列化：将文件中的字符串转换成python对象--------------
-f_read = open('text.txt','r',encoding='utf-8')
-res = f_read.read()
-print(type(res))
-print(res)
-data_2 = json.loads(res)
-print(type(data_2))#<class 'dict'>
-print(data_2)
-print(data_2['name'])
-print(data_2['age'])
+# f_read = open('text.txt','r',encoding='utf-8')
+# res = f_read.read()
+# print(type(res))
+# print(res)
+# data_2 = json.loads(res)
+# print(type(data_2))#<class 'dict'>
+# print(data_2)
+# print(data_2['name'])
+# print(data_2['age'])
 
 
 # ----------------pickle----------------------

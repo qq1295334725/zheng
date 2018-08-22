@@ -16,23 +16,9 @@ import requests
 # print(r.text)
 
 session_obj = requests.Session()
-session_obj.get("http://httpbin.org/cookies/set/number/123456789")
+s = session_obj.get("http://httpbin.org/cookies/set/number/123456789")
+print(s)
 r = session_obj.get("http://httpbin.org/cookies")
 print(r.text)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

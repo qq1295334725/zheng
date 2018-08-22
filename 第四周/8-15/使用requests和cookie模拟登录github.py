@@ -11,46 +11,46 @@ import requests
 import re
 class Login_GitHub(object):
     def __init__(self):
-        self.headers = {
+        self.headers={
             "User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:61.0) Gecko/20100101 Firefox/61.0",
             "Host":"github.com",
             "Referer":"https://github.com/"
         }
-        self.login_url = "https://github.com/login"
-        self.post_url = "https://github.com/session"
+        self.login_url="https://github.com/login"
+        self.post_url="https://github.com/session"
         self.logined_url = "https://github.com/settings/profile"
-        self.session = requests.Session()
+        self.session=requests.Session()
 
-    # 定义一个函数来获取get_authenticity_token这个参数的值
+    #定义一个函数来获取authenticity_token这个参数的值
     def get_authenticity_token(self):
-        response = self.session.get(self.login_url,headers=self.headers).text
-        pattern_obj = re.compile(r'authenticity_token.*?value="(.*?)" />',re.S)
+        response=self.session.get(self.login_url,headers=self.headers).text
+        pattern_obj=re.compile(r'authenticity_token.*?value="(.*?)" />',re.S)
         authenticity_token=re.search(pattern_obj,response)[1]
-        print(authenticity_token)
         return authenticity_token
-    # 拿到这个authenticity_token参数后，就可以模拟登陆了
+
+    #拿到authenticity_token这个参数就可以进行模拟登陆了
     def login(self,login,password):
         post_data={
             "commit":"Sign+in",
             "utf8":"√",
             "authenticity_token":self.get_authenticity_token(),
             "login":login,
-            "password":password
+            "password":password,
         }
-        response = self.session.post(self.post_url,data=post_data,headers =self.headers)
-        if response.status_code==200:
-            print('登陆成功！')
-            response=self.session.get(self.logined_url,headers=self.headers)
-            print(response.text)
-
-
+        self.session.post(self.post_url,data=post_data,headers=self.headers)
+        response=self.session.get(self.logined_url,headers=self.headers).text
+        self.profile(response)
+    def profile(self, html):
+        pattern_obj = re.compile(r'<input class="form-control" type="text" value="(.*?)".*?id="user_profile_name" />',re.S)
+        name = re.search(pattern_obj, html)[1]
+        print(name)
 
 
 
 if __name__ == '__main__':
     github = Login_GitHub()
-    github.get_authenticity_token()
-    github.login("qq1295334725","llCHEN@06.23.")
+    # github.get_authenticity_token()
+    github.login("xiaochideid","chi152900")
 
 
 

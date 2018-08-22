@@ -20,7 +20,7 @@ class LoginZhiYou(object):
         response = self.session.post(self.post_url,data=data,headers = self.headers)
         print(response.text)
     def is_login(self):
-        response = self.session.get("http://kaoshi.zhiyou900.com:8888/edustu/login/login.spr",headers=self.headers)
+        response = self.session.get("http://kaoshi.zhiyou900.com:8888/edustu/me/edu/meda.spr",headers=self.headers)
         if response.status_code==200:
             print("登录状态:",response.text)
         else:
