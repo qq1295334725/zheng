@@ -12,8 +12,8 @@ from lxml import etree
 html = etree.parse("index.html").getroot()
 # html = etree.HTML("源代码")
 # 使用标签选择器
-title = html.cssselect("title")[0].text
-print(title)
+# title = html.cssselect("titale")[0].text
+# print(title)
 # 使用类选择器
 a = html.cssselect(".first_a")[0].get("href")
 print(a)
