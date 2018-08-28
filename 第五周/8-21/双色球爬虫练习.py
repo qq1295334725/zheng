@@ -55,7 +55,7 @@ class SSQ(object):
                 winning_list_2=winning_list_1[y:y+7]
                 y += 7
                 winning_list.append(winning_list_2)
-            sale_1_list = html.xpath('//table[@class="wqhgt"]//tr//td[4]//strong//text()')#21号没数据
+            sale_1_list = html.xpath('//table[@class="wqhgt"]//tr//tdwed[4]//strong//text()')#21号没数据
             one_list = html.xpath('//table[@class="wqhgt"]//tr//td[5]//strong//text()')
             two_list = html.xpath('//table[@class="wqhgt"]//tr//td[6]//strong//text()')
             for x in range(0,len(data_list)):
